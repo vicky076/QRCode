@@ -1,0 +1,6 @@
+D:\TestProject\QRCode\QRCode\bin\QRCode.dll
+D:\TestProject\QRCode\QRCode\bin\QRCode.pdb
+D:\TestProject\QRCode\QRCode\bin\zxing.dll
+D:\TestProject\QRCode\QRCode\obj\Debug\QRCode.csprojResolveAssemblyReference.cache
+D:\TestProject\QRCode\QRCode\obj\Debug\QRCode.dll
+D:\TestProject\QRCode\QRCode\obj\Debug\QRCode.pdb

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRCode", "QRCode\QRCode.csproj", "{8759408C-C38F-464E-8575-005E7087C333}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8759408C-C38F-464E-8575-005E7087C333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8759408C-C38F-464E-8575-005E7087C333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8759408C-C38F-464E-8575-005E7087C333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8759408C-C38F-464E-8575-005E7087C333}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
