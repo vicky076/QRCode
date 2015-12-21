@@ -1,4 +1,0 @@
-D:\TestProject\Angular\Angular\bin\Angular.dll
-D:\TestProject\Angular\Angular\bin\Angular.pdb
-D:\TestProject\Angular\Angular\obj\Debug\Angular.dll
-D:\TestProject\Angular\Angular\obj\Debug\Angular.pdb
