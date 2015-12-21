@@ -1,0 +1,1478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAllApplication">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllApplicationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadApplicationByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadApplicationByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadApplicationByKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAppName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAPCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sEntryPage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLogoutPage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertNewApplicationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroupPermissionApplications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iUID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroupPermissionApplicationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserGroupPermissionApplicationsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsHasPermissionUseAP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAPCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsHasPermissionUseAPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsHasPermissionUseAPResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAIDbyAPCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAPCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAIDbyAPCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAIDbyAPCodeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAPCodeUsed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAPCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isAPCodeUsedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAPCodeUsedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewFunClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFunName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isVisible" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="iAID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewFunClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertNewFunClassResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadFunctionByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iPKey" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadFunctionByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadFunctionByKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewFunction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFunName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIsVisible" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sHref" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iPFID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iAID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTarget" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewFunctionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertNewFunctionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppAllFunctionsByAPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppAllFunctionsByAPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppAllFunctionsByAPIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFunction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iFID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFunName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIsVisible" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sHref" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iPFID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTarget" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFunctionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateFunClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iFID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFunName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIsVisible" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFunClassResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateFunctionOrderNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arysOrder" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateFunctionOrderNoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetChildFunctionByParentFunID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iPFID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChildFunctionByParentFunIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChildFunctionByParentFunIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParentFunctionByAPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParentFunctionByAPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParentFunctionByAPIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppFunctionPagesByAPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iAID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppFunctionPagesByAPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppFunctionPagesByAPIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sHref" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iFID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="arysButtons" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewPageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iFID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPagesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetButtonsByPageID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iPMID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetButtonsByPageIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetButtonsByPageIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadPageByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iPMID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadPageByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadPageByKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iPMID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sHref" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIsVisible" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="arysButtons" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadAllButton">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadAllButtonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAllButtonResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="btnCodeToBID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sBtnCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="btnCodeToBIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="btnCodeToBIDResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetGroupAppFunctionPermission1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iGID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iAID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsPages">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetGroupAppFunctionPermission1Response">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetGroupAppFunctionPermission">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iGID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iAID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsPages">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetGroupAppFunctionPermissionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserPortalSystemAuthKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAPCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserPortalSystemAuthKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserPortalSystemAuthKeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAuthKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAPCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="APLoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserLoginCurrentAuthApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iUID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserLoginCurrentAuthApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserLoginCurrentAuthApplicationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAPAuthInvalid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAuthKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAPCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAPAuthInvalidResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckAuthIsValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAuthKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAPCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAuthIsValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckAuthIsValidResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelAPAuth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iUID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelAPAuthResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllApplication" />
+  </wsdl:message>
+  <wsdl:message name="GetAllApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadApplicationByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:LoadApplicationByKey" />
+  </wsdl:message>
+  <wsdl:message name="LoadApplicationByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:LoadApplicationByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertNewApplication" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertNewApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupPermissionApplicationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserGroupPermissionApplications" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupPermissionApplicationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserGroupPermissionApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsHasPermissionUseAPSoapIn">
+    <wsdl:part name="parameters" element="tns:IsHasPermissionUseAP" />
+  </wsdl:message>
+  <wsdl:message name="IsHasPermissionUseAPSoapOut">
+    <wsdl:part name="parameters" element="tns:IsHasPermissionUseAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAIDbyAPCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAIDbyAPCode" />
+  </wsdl:message>
+  <wsdl:message name="GetAIDbyAPCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAIDbyAPCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="isAPCodeUsedSoapIn">
+    <wsdl:part name="parameters" element="tns:isAPCodeUsed" />
+  </wsdl:message>
+  <wsdl:message name="isAPCodeUsedSoapOut">
+    <wsdl:part name="parameters" element="tns:isAPCodeUsedResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewFunClassSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertNewFunClass" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewFunClassSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertNewFunClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadFunctionByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:LoadFunctionByKey" />
+  </wsdl:message>
+  <wsdl:message name="LoadFunctionByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:LoadFunctionByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewFunctionSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertNewFunction" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewFunctionSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertNewFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppAllFunctionsByAPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppAllFunctionsByAPID" />
+  </wsdl:message>
+  <wsdl:message name="GetAppAllFunctionsByAPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppAllFunctionsByAPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFunctionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFunction" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFunctionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFunClassSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFunClass" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFunClassSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFunClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFunctionOrderNoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFunctionOrderNo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFunctionOrderNoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFunctionOrderNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChildFunctionByParentFunIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChildFunctionByParentFunID" />
+  </wsdl:message>
+  <wsdl:message name="GetChildFunctionByParentFunIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChildFunctionByParentFunIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParentFunctionByAPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParentFunctionByAPID" />
+  </wsdl:message>
+  <wsdl:message name="GetParentFunctionByAPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParentFunctionByAPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppFunctionPagesByAPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppFunctionPagesByAPID" />
+  </wsdl:message>
+  <wsdl:message name="GetAppFunctionPagesByAPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppFunctionPagesByAPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewPageSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertNewPage" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewPageSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertNewPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPages" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetButtonsByPageIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetButtonsByPageID" />
+  </wsdl:message>
+  <wsdl:message name="GetButtonsByPageIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetButtonsByPageIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadPageByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:LoadPageByKey" />
+  </wsdl:message>
+  <wsdl:message name="LoadPageByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:LoadPageByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePage" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePageResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAllButtonSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAllButton" />
+  </wsdl:message>
+  <wsdl:message name="LoadAllButtonSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAllButtonResponse" />
+  </wsdl:message>
+  <wsdl:message name="btnCodeToBIDSoapIn">
+    <wsdl:part name="parameters" element="tns:btnCodeToBID" />
+  </wsdl:message>
+  <wsdl:message name="btnCodeToBIDSoapOut">
+    <wsdl:part name="parameters" element="tns:btnCodeToBIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetGroupAppFunctionPermission1SoapIn">
+    <wsdl:part name="parameters" element="tns:SetGroupAppFunctionPermission1" />
+  </wsdl:message>
+  <wsdl:message name="SetGroupAppFunctionPermission1SoapOut">
+    <wsdl:part name="parameters" element="tns:SetGroupAppFunctionPermission1Response" />
+  </wsdl:message>
+  <wsdl:message name="SetGroupAppFunctionPermissionSoapIn">
+    <wsdl:part name="parameters" element="tns:SetGroupAppFunctionPermission" />
+  </wsdl:message>
+  <wsdl:message name="SetGroupAppFunctionPermissionSoapOut">
+    <wsdl:part name="parameters" element="tns:SetGroupAppFunctionPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPortalSystemAuthKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserPortalSystemAuthKey" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPortalSystemAuthKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserPortalSystemAuthKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="APLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:APLogin" />
+  </wsdl:message>
+  <wsdl:message name="APLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:APLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserLoginCurrentAuthApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserLoginCurrentAuthApplication" />
+  </wsdl:message>
+  <wsdl:message name="GetUserLoginCurrentAuthApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserLoginCurrentAuthApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAPAuthInvalidSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAPAuthInvalid" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAPAuthInvalidSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAPAuthInvalidResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAuthIsValidSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAuthIsValid" />
+  </wsdl:message>
+  <wsdl:message name="CheckAuthIsValidSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAuthIsValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelAPAuthSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelAPAuth" />
+  </wsdl:message>
+  <wsdl:message name="CancelAPAuthSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelAPAuthResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsAppFunctionsSoap">
+    <wsdl:operation name="GetAllApplication">
+      <wsdl:input message="tns:GetAllApplicationSoapIn" />
+      <wsdl:output message="tns:GetAllApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadApplicationByKey">
+      <wsdl:input message="tns:LoadApplicationByKeySoapIn" />
+      <wsdl:output message="tns:LoadApplicationByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewApplication">
+      <wsdl:input message="tns:InsertNewApplicationSoapIn" />
+      <wsdl:output message="tns:InsertNewApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupPermissionApplications">
+      <wsdl:input message="tns:GetUserGroupPermissionApplicationsSoapIn" />
+      <wsdl:output message="tns:GetUserGroupPermissionApplicationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsHasPermissionUseAP">
+      <wsdl:input message="tns:IsHasPermissionUseAPSoapIn" />
+      <wsdl:output message="tns:IsHasPermissionUseAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAIDbyAPCode">
+      <wsdl:input message="tns:GetAIDbyAPCodeSoapIn" />
+      <wsdl:output message="tns:GetAIDbyAPCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isAPCodeUsed">
+      <wsdl:input message="tns:isAPCodeUsedSoapIn" />
+      <wsdl:output message="tns:isAPCodeUsedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewFunClass">
+      <wsdl:input message="tns:InsertNewFunClassSoapIn" />
+      <wsdl:output message="tns:InsertNewFunClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadFunctionByKey">
+      <wsdl:input message="tns:LoadFunctionByKeySoapIn" />
+      <wsdl:output message="tns:LoadFunctionByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewFunction">
+      <wsdl:input message="tns:InsertNewFunctionSoapIn" />
+      <wsdl:output message="tns:InsertNewFunctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppAllFunctionsByAPID">
+      <wsdl:input message="tns:GetAppAllFunctionsByAPIDSoapIn" />
+      <wsdl:output message="tns:GetAppAllFunctionsByAPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunction">
+      <wsdl:input message="tns:UpdateFunctionSoapIn" />
+      <wsdl:output message="tns:UpdateFunctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunClass">
+      <wsdl:input message="tns:UpdateFunClassSoapIn" />
+      <wsdl:output message="tns:UpdateFunClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunctionOrderNo">
+      <wsdl:input message="tns:UpdateFunctionOrderNoSoapIn" />
+      <wsdl:output message="tns:UpdateFunctionOrderNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChildFunctionByParentFunID">
+      <wsdl:input message="tns:GetChildFunctionByParentFunIDSoapIn" />
+      <wsdl:output message="tns:GetChildFunctionByParentFunIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParentFunctionByAPID">
+      <wsdl:input message="tns:GetParentFunctionByAPIDSoapIn" />
+      <wsdl:output message="tns:GetParentFunctionByAPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppFunctionPagesByAPID">
+      <wsdl:input message="tns:GetAppFunctionPagesByAPIDSoapIn" />
+      <wsdl:output message="tns:GetAppFunctionPagesByAPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewPage">
+      <wsdl:input message="tns:InsertNewPageSoapIn" />
+      <wsdl:output message="tns:InsertNewPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <wsdl:input message="tns:GetPagesSoapIn" />
+      <wsdl:output message="tns:GetPagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetButtonsByPageID">
+      <wsdl:input message="tns:GetButtonsByPageIDSoapIn" />
+      <wsdl:output message="tns:GetButtonsByPageIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadPageByKey">
+      <wsdl:input message="tns:LoadPageByKeySoapIn" />
+      <wsdl:output message="tns:LoadPageByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePage">
+      <wsdl:input message="tns:UpdatePageSoapIn" />
+      <wsdl:output message="tns:UpdatePageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllButton">
+      <wsdl:input message="tns:LoadAllButtonSoapIn" />
+      <wsdl:output message="tns:LoadAllButtonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="btnCodeToBID">
+      <wsdl:input message="tns:btnCodeToBIDSoapIn" />
+      <wsdl:output message="tns:btnCodeToBIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupAppFunctionPermission1">
+      <wsdl:input message="tns:SetGroupAppFunctionPermission1SoapIn" />
+      <wsdl:output message="tns:SetGroupAppFunctionPermission1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupAppFunctionPermission">
+      <wsdl:input message="tns:SetGroupAppFunctionPermissionSoapIn" />
+      <wsdl:output message="tns:SetGroupAppFunctionPermissionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPortalSystemAuthKey">
+      <wsdl:input message="tns:GetUserPortalSystemAuthKeySoapIn" />
+      <wsdl:output message="tns:GetUserPortalSystemAuthKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APLogin">
+      <wsdl:input message="tns:APLoginSoapIn" />
+      <wsdl:output message="tns:APLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserLoginCurrentAuthApplication">
+      <wsdl:input message="tns:GetUserLoginCurrentAuthApplicationSoapIn" />
+      <wsdl:output message="tns:GetUserLoginCurrentAuthApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAPAuthInvalid">
+      <wsdl:input message="tns:UpdateAPAuthInvalidSoapIn" />
+      <wsdl:output message="tns:UpdateAPAuthInvalidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAuthIsValid">
+      <wsdl:input message="tns:CheckAuthIsValidSoapIn" />
+      <wsdl:output message="tns:CheckAuthIsValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelAPAuth">
+      <wsdl:input message="tns:CancelAPAuthSoapIn" />
+      <wsdl:output message="tns:CancelAPAuthSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsAppFunctionsSoap" type="tns:wsAppFunctionsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllApplication">
+      <soap:operation soapAction="http://tempuri.org/GetAllApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadApplicationByKey">
+      <soap:operation soapAction="http://tempuri.org/LoadApplicationByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewApplication">
+      <soap:operation soapAction="http://tempuri.org/InsertNewApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupPermissionApplications">
+      <soap:operation soapAction="http://tempuri.org/GetUserGroupPermissionApplications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsHasPermissionUseAP">
+      <soap:operation soapAction="http://tempuri.org/IsHasPermissionUseAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAIDbyAPCode">
+      <soap:operation soapAction="http://tempuri.org/GetAIDbyAPCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAPCodeUsed">
+      <soap:operation soapAction="http://tempuri.org/isAPCodeUsed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewFunClass">
+      <soap:operation soapAction="http://tempuri.org/InsertNewFunClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadFunctionByKey">
+      <soap:operation soapAction="http://tempuri.org/LoadFunctionByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewFunction">
+      <soap:operation soapAction="http://tempuri.org/InsertNewFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppAllFunctionsByAPID">
+      <soap:operation soapAction="http://tempuri.org/GetAppAllFunctionsByAPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunction">
+      <soap:operation soapAction="http://tempuri.org/UpdateFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunClass">
+      <soap:operation soapAction="http://tempuri.org/UpdateFunClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunctionOrderNo">
+      <soap:operation soapAction="http://tempuri.org/UpdateFunctionOrderNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildFunctionByParentFunID">
+      <soap:operation soapAction="http://tempuri.org/GetChildFunctionByParentFunID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParentFunctionByAPID">
+      <soap:operation soapAction="http://tempuri.org/GetParentFunctionByAPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppFunctionPagesByAPID">
+      <soap:operation soapAction="http://tempuri.org/GetAppFunctionPagesByAPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewPage">
+      <soap:operation soapAction="http://tempuri.org/InsertNewPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <soap:operation soapAction="http://tempuri.org/GetPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetButtonsByPageID">
+      <soap:operation soapAction="http://tempuri.org/GetButtonsByPageID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadPageByKey">
+      <soap:operation soapAction="http://tempuri.org/LoadPageByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePage">
+      <soap:operation soapAction="http://tempuri.org/UpdatePage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllButton">
+      <soap:operation soapAction="http://tempuri.org/LoadAllButton" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="btnCodeToBID">
+      <soap:operation soapAction="http://tempuri.org/btnCodeToBID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupAppFunctionPermission1">
+      <soap:operation soapAction="http://tempuri.org/SetGroupAppFunctionPermission1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupAppFunctionPermission">
+      <soap:operation soapAction="http://tempuri.org/SetGroupAppFunctionPermission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPortalSystemAuthKey">
+      <soap:operation soapAction="http://tempuri.org/GetUserPortalSystemAuthKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLogin">
+      <soap:operation soapAction="http://tempuri.org/APLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserLoginCurrentAuthApplication">
+      <soap:operation soapAction="http://tempuri.org/GetUserLoginCurrentAuthApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAPAuthInvalid">
+      <soap:operation soapAction="http://tempuri.org/UpdateAPAuthInvalid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAuthIsValid">
+      <soap:operation soapAction="http://tempuri.org/CheckAuthIsValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAPAuth">
+      <soap:operation soapAction="http://tempuri.org/CancelAPAuth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsAppFunctionsSoap12" type="tns:wsAppFunctionsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllApplication">
+      <soap12:operation soapAction="http://tempuri.org/GetAllApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadApplicationByKey">
+      <soap12:operation soapAction="http://tempuri.org/LoadApplicationByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewApplication">
+      <soap12:operation soapAction="http://tempuri.org/InsertNewApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupPermissionApplications">
+      <soap12:operation soapAction="http://tempuri.org/GetUserGroupPermissionApplications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsHasPermissionUseAP">
+      <soap12:operation soapAction="http://tempuri.org/IsHasPermissionUseAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAIDbyAPCode">
+      <soap12:operation soapAction="http://tempuri.org/GetAIDbyAPCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAPCodeUsed">
+      <soap12:operation soapAction="http://tempuri.org/isAPCodeUsed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewFunClass">
+      <soap12:operation soapAction="http://tempuri.org/InsertNewFunClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadFunctionByKey">
+      <soap12:operation soapAction="http://tempuri.org/LoadFunctionByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewFunction">
+      <soap12:operation soapAction="http://tempuri.org/InsertNewFunction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppAllFunctionsByAPID">
+      <soap12:operation soapAction="http://tempuri.org/GetAppAllFunctionsByAPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunction">
+      <soap12:operation soapAction="http://tempuri.org/UpdateFunction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunClass">
+      <soap12:operation soapAction="http://tempuri.org/UpdateFunClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFunctionOrderNo">
+      <soap12:operation soapAction="http://tempuri.org/UpdateFunctionOrderNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildFunctionByParentFunID">
+      <soap12:operation soapAction="http://tempuri.org/GetChildFunctionByParentFunID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParentFunctionByAPID">
+      <soap12:operation soapAction="http://tempuri.org/GetParentFunctionByAPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppFunctionPagesByAPID">
+      <soap12:operation soapAction="http://tempuri.org/GetAppFunctionPagesByAPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewPage">
+      <soap12:operation soapAction="http://tempuri.org/InsertNewPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <soap12:operation soapAction="http://tempuri.org/GetPages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetButtonsByPageID">
+      <soap12:operation soapAction="http://tempuri.org/GetButtonsByPageID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadPageByKey">
+      <soap12:operation soapAction="http://tempuri.org/LoadPageByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePage">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllButton">
+      <soap12:operation soapAction="http://tempuri.org/LoadAllButton" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="btnCodeToBID">
+      <soap12:operation soapAction="http://tempuri.org/btnCodeToBID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupAppFunctionPermission1">
+      <soap12:operation soapAction="http://tempuri.org/SetGroupAppFunctionPermission1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupAppFunctionPermission">
+      <soap12:operation soapAction="http://tempuri.org/SetGroupAppFunctionPermission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPortalSystemAuthKey">
+      <soap12:operation soapAction="http://tempuri.org/GetUserPortalSystemAuthKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLogin">
+      <soap12:operation soapAction="http://tempuri.org/APLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserLoginCurrentAuthApplication">
+      <soap12:operation soapAction="http://tempuri.org/GetUserLoginCurrentAuthApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAPAuthInvalid">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAPAuthInvalid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAuthIsValid">
+      <soap12:operation soapAction="http://tempuri.org/CheckAuthIsValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAPAuth">
+      <soap12:operation soapAction="http://tempuri.org/CancelAPAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsAppFunctions">
+    <wsdl:port name="wsAppFunctionsSoap" binding="tns:wsAppFunctionsSoap">
+      <soap:address location="http://10.16.1.247/SWWebService/wsAppFunctions.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsAppFunctionsSoap12" binding="tns:wsAppFunctionsSoap12">
+      <soap12:address location="http://10.16.1.247/SWWebService/wsAppFunctions.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

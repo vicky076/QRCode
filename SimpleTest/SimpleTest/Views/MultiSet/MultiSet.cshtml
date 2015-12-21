@@ -1,0 +1,90 @@
+﻿@model SimpleTest.Models.MultiSet
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "會員儲值活動卡號區間設定";
+    //  IEnumerable<SimpleTest.Models.MutiDataList> dtQuery = (IEnumerable<SimpleTest.Models.MutiDataList>)ViewBag.Query;
+    List<SimpleTest.Models.MutiDataList> dtQuery = (List<SimpleTest.Models.MutiDataList>)ViewBag.Query;
+    int RowCount = 0;
+    if (ViewBag.Count != null)
+    {
+        RowCount = ViewBag.Count;
+    }
+}
+
+<h2>MACT後台/活動</h2>
+<link href="~/Content/myStyle.css" rel="stylesheet" />
+<style type="text/css">
+    body
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-top: 0px;
+    }
+
+    .auto-style1
+    {
+        height: 37px;
+    }
+
+    .auto-style2
+    {
+        height: 37px;
+        width: 299px;
+    }
+
+    fieldset
+    {
+        border: 1px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<script type="text/javascript">
+    var index = 0;
+    function addField() {
+        index = $("#txtRowCount").val();
+        index = parseInt(index) + 1;
+        $("#txtRowCount").val(index);
+
+        $("#tabQuery").append('<tr><td><input type="text" name="MutiSetting[' + index + '].P_cCardStart"></td><td><input type="text" name="MutiSetting[' + index + '].P_cCardEnd"></td><td><input type="text" name="MutiSetting[' + index + '].P_cActID"></td></tr>');
+        index++;
+    }
+
+</script>
+@using (Html.BeginForm("MultiSet", "MultiSet", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <p>@Html.ValidationMessageFor(e => e.ErrorMessage) </p> 
+    <div id="email_area">
+        <p>
+            <input type="button" onclick="addField()" value="增加欄位">
+            <input type="text" id="txtRowCount" value="@RowCount " />
+        </p>
+    </div>
+    <table id="tabQuery" width="100%" border="0" cellspacing="2" cellpadding="2" class="table table-bordered">
+        <tr>
+            <td style="width: 50px">卡片區間(起)</td>
+            <td style="width: 50px">卡片區間(迄)</td>
+            <td style="width: 50px">活動ID</td>
+        </tr>
+        @if (dtQuery != null && dtQuery.Count() > 0)
+        {
+            int i = 0;
+            foreach (var item in dtQuery)
+            {
+            <tr>
+                <td style="width: 50px">
+                    <input type="text" value='@item.P_cCardStart'  name="MutiSetting[@i].P_cCardStart"/></td>
+                <td style="width: 50px">
+                    <input type="text" value='@item.P_cCardEnd'  name="MutiSetting[@i].P_cCardEnd"/></td>
+                <td style="width: 50px">
+                    <input type="text" value='@item.P_cActID'  name="MutiSetting[@i].P_cActID"/></td>
+            </tr>
+                i++;
+            }
+        }
+    </table>
+    <input type="submit" value="確定" />
+    @Html.ActionLink(new HtmlString("取消").ToString(), "index", "index", null, null) 
+}

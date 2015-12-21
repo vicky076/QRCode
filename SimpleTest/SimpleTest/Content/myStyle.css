@@ -1,0 +1,65 @@
+﻿ div#wrapper {
+            position: relative;
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 10pt;
+            margin-top: 30px;
+            border-top: 1px solid #CCC;
+            background: #F1F1F1;
+        }
+
+        div.pagination {
+            overflow: hidden;
+            font-size: 9pt;
+            padding: 10px 0;
+        }
+
+            div.pagination ul {
+                list-style: none;
+                padding: 2px 0;
+                line-height: 16px;
+            }
+
+            div.pagination li {
+                display: inline;
+            }
+            /*Blue Style*/
+            div.pagination.manu {
+                padding: 3px;
+                margin: 3px;
+                text-align: center;
+            }
+
+                div.pagination.manu a {
+                    padding: 2px 5px 2px 5px;
+                    margin: 2px;
+                    border: 1px solid #EEE;
+                    text-decoration: none; /* no underline */
+                    color: #036CB4;
+                }
+
+                    div.pagination.manu a:hover,
+                    div.pagination.manu a:active {
+                        background-image: none;
+                        background-color: #036CB4;
+                        color: #fff;
+                    }
+
+                div.pagination.manu .current {
+                    padding: 2px 5px 2px 5px;
+                    margin: 2px;
+                    border: 1px solid #036CB4;
+                    font-weight: bold;
+                    background-color: #036CB4;
+                    color: #FFF;
+                }
+
+                div.pagination.manu .disabled {
+                    padding: 2px 5px 2px 5px;
+                    margin: 2px;
+                    border: 1px solid #EEE;
+                    color: #DDD;
+                }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.16.1.247/MyCardNoSetWCF/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MyCardNoSetWCF" />
+  <xs:element name="View_MyCard_SaveByCardBetweenQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CardNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Sn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ActID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="View_MyCard_SaveByCardBetweenQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MyCardNoSetWCF" minOccurs="0" name="View_MyCard_SaveByCardBetweenQueryResult" nillable="true" type="q1:ReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MyCard_SaveByCardBetweenInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="P_cCardStart" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="P_cCardEnd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="P_cActID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="P_cCreateUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MyCard_SaveByCardBetweenInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MyCardNoSetWCF" minOccurs="0" name="MyCard_SaveByCardBetweenInsertResult" nillable="true" type="q2:ReturnValueIns" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MyCard_SaveByCardBetweenUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="P_iSn" type="xs:int" />
+        <xs:element minOccurs="0" name="P_iStatus" type="xs:int" />
+        <xs:element minOccurs="0" name="P_cProcDesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="P_cCreateUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MyCard_SaveByCardBetweenUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MyCardNoSetWCF" minOccurs="0" name="MyCard_SaveByCardBetweenUpdateResult" nillable="true" type="q3:ReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

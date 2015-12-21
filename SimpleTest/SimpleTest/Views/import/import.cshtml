@@ -1,0 +1,28 @@
+﻿@{
+    
+}
+@using (Html.BeginForm("Import", "import", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <!-- File Button -->
+    <div class="control-group">
+        <label class="control-label">匯入檔案</label>
+        <div class="controls">
+            <input id="file" name="file" class="input-file" type="file">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <div class="validation-summary-errors">
+                <p>
+                    @Html.Raw(ViewBag.Error)
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Button -->
+    <div class="control-group">
+        <div class="controls">
+           <input id="submit" name="submit" class="btn btn-primary" type="submit" value="送出" >
+        </div>
+    </div>
+}

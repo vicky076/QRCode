@@ -1,0 +1,64 @@
+﻿@model SimpleTest.Models.insert
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string Card = "";
+    string MsgNo = "";
+    if (ViewBag.MsgNo != null)
+    {
+        MsgNo = ViewBag.MsgNo;
+    }
+
+    if (ViewBag.Card != null)
+    {
+        Card = ViewBag.Card;
+    }
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#reset").click(function () {
+            parent.$.colorbox.close();
+        });
+    });
+
+</script>
+<style type="text/css">
+    .editor-field textarea
+    {
+        width: 500px;
+        height: 100px;
+    }
+</style>
+
+@using (Html.BeginForm("delete", "delete", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <p>@Html.ValidationMessageFor(e => e.ErrorMessage) </p>
+    <div>
+        <div class="editor-label">
+            卡號區間：
+            @Html.Label(@Card)
+            @Html.HiddenFor(model => model.P_iSn)
+            @Html.HiddenFor(model => model.P_cCreateUser)
+            @Html.HiddenFor(model => model.P_cCardStart)
+            @Html.HiddenFor(model => model.P_cCardEnd)
+        </div>
+        <div class="editor-field">
+            刪除原因：
+            @Html.TextAreaFor(model => model.P_cProcDesc)
+            @Html.ValidationMessageFor(model => model.P_cProcDesc)
+        </div>
+        <br />
+        <p>
+           @if (MsgNo != "1")
+            {
+                <input type="submit" value="刪除" />
+            }
+            &nbsp;&nbsp;&nbsp;
+             <input type="reset" id="reset" value="取消" />
+        </p>
+    </div>
+}

@@ -1,0 +1,218 @@
+﻿@model SimpleTest.Models.index
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "會員儲值活動卡號區間設定";
+
+    IEnumerable<SimpleTest.Models.DataList> dtQuery = (IEnumerable<SimpleTest.Models.DataList>)ViewBag.Query;
+    int page = 1;
+    int newpage = 0;
+    string Msg = "";
+
+    if (ViewBag.Msg != null)
+    {
+        Msg = ViewBag.Msg;
+    }
+
+    if (ViewBag.page != null)
+    {
+        page = ViewBag.page;
+    }
+
+    if (ViewBag.newpage != null)
+    {
+        newpage = Convert.ToInt32(ViewBag.newpage);
+    }
+}
+
+<h2>MACT後台/活動</h2>
+<link href="~/Content/myStyle.css" rel="stylesheet" />
+<style type="text/css">
+    body
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-top: 0px;
+    }
+
+    .auto-style1
+    {
+        height: 37px;
+    }
+
+    .auto-style2
+    {
+        height: 37px;
+        width: 299px;
+    }
+
+    fieldset
+    {
+        border: 1px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ajaxComplete(function () {
+        $(".PopUpLink").colorbox({
+            iframe: true,
+            'width': '60%',
+            'height': '60%',
+            'opacity': 0.78,
+            onStart: function () {
+                $.blockUI();
+            },
+            onComplete: function () {
+                $.unblockUI();
+            },
+            onCleanup: function () {
+                $("#myForm").submit();
+            }
+        });
+    });
+
+
+    $(document).ready(function () {
+        $(".PopUpLink").colorbox({
+            iframe: true,
+            'width': '60%',
+            'height': '60%',
+            'opacity': 0.78,
+            onStart: function () {
+                $.blockUI();
+            },
+            onComplete: function () {
+                $.unblockUI();
+            },
+            onCleanup: function () {
+                $("#myForm").submit();
+            }
+        });
+    });
+
+    function pagechange(newpage) {
+        $("#hidnowpage").val(newpage);
+        $("#myForm").submit();
+    }
+</script>
+
+@using (Html.BeginForm("index", "index", FormMethod.Post, new { id = "myForm", name = "myForm" }))
+{
+    @Html.ValidationSummary(true)
+    <p>@Html.ValidationMessageFor(e => e.ErrorMessage) </p>
+    <table>
+        <div class="col-md-6">
+            <table class="table table-bordered" width="40%">
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.CardNo)
+                        @Html.TextBoxFor(model => model.CardNo, new { id = "CardNo", name = "CardNo", style = "width:150px" })
+                        <br />
+                        @Html.LabelFor(model => model.Sn)
+                        @Html.TextBoxFor(model => model.Sn, new { id = "Sn", name = "Sn", style = "width:150px" })
+                        <br />
+                        @Html.LabelFor(model => model.ActIDQ)
+                        @Html.TextBoxFor(model => model.ActIDQ, new { id = "ActID", name = "ActID", style = "width:150px" })
+                        <a>(非必填)</a>
+                        <br />
+                        <br />
+                        <input type="submit" value="查詢" class="btn btn-default" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </table>
+    @Html.ActionLink(new HtmlString("建立資料").ToString(), "insert", "Insert", null, new { @id = "insert", @class = "PopUpLink" }) 
+    @(" ")
+    @Html.ActionLink(new HtmlString("匯出Excel").ToString(), "Export", "index", new { stype = "excel" }, null)
+    @(" ")
+    @Html.ActionLink(new HtmlString("寄送mail").ToString(), "Export", "index", new { stype = "mail" }, null)
+    @(" ")
+    @Html.ActionLink(new HtmlString("批次匯入").ToString(), "Import", "index", null, null)
+    @(" ")
+    @Html.ActionLink(new HtmlString("多筆新增").ToString(), "MultiSet", "MultiSet", null, null)
+    <br /> <br />
+    <p style="color: red">@Msg</p>    
+    if (dtQuery != null)
+    {
+        if (dtQuery != null && dtQuery.Count() > 0)
+        {
+    <fieldset>
+        <legend>查詢結果</legend>
+        <table id="tabQuery" width="100%" border="0" cellspacing="2" cellpadding="2" class="table table-bordered">
+            <tr>
+                <td style="width: 50px"></td>
+                <td style="width: 100px">@Html.LabelFor(model => model.Sn)</td>
+                <td style="width: 150px">@Html.LabelFor(model => model.CreateDate)</td>
+                <td style="width: 100px">@Html.LabelFor(model => model.Card_Start)</td>
+                <td style="width: 100px">@Html.LabelFor(model => model.Card_End)</td>
+                <td style="width: 100px">@Html.LabelFor(model => model.CARD_POINT)</td>
+                <td style="width: 200px">@Html.LabelFor(model => model.ActID)</td>
+                <td style="width: 100px">@Html.LabelFor(model => model.CreateUser)</td>
+            </tr>
+            @foreach (var item in dtQuery)
+            {
+                <tr>
+                    <td>@Html.ActionLink(new HtmlString("刪除").ToString(), "delete", "delete", new { Sn = @item.Sn, P_cCardStart = @item.Card_Start, P_cCardEnd = @item.Card_End, CreateUser = @item.CreateUser }, new { @class = "PopUpLink" })</td>
+                    <td>@item.Sn  </td>
+                    <td>@item.CreateDate </td>
+                    <td>@item.Card_Start</td>
+                    <td>@item.Card_End</td>
+                    <td>@item.CARD_POINT </td>
+                    <td>@item.ActTitle</td>
+                    <td>@item.CreateUser</td>            
+                </tr>
+            }
+        </table>
+        <table>
+            <tr>
+                <td style="background-color: #fff" colspan="5">
+                    <div id="wrapper" class="pagination manu">
+                        <ul>
+                            @if ((newpage.ToString() != "1" && page != 0))
+                            {
+                                <li>
+                                    <a id="firstpage" onclick="pagechange(1)">第一頁</a>
+                                </li>
+                                <li>
+                                    <a id="lastpage"  onclick="pagechange(@newpage -1)">上一頁</a>
+                                </li>
+                            }
+                            @for (int i = 1; i <= page; i++)
+                            {
+                                <li>
+                                    @if (newpage.ToString() == @i.ToString())
+                                    {
+                                        <a id="nowpage" class="current">@i.ToString()</a>
+                                    }
+                                    else
+                                    {
+                                        if ((newpage + 4 >= i && newpage < i) || (newpage - 4 <= i && newpage > i))
+                                        { 
+                                        <a id="newpage"  onclick="pagechange(@i.ToString())">@i.ToString()</a>
+                                        }
+                                    }
+                                </li>
+                            }
+                            @if (newpage.ToString() != page.ToString() && page != 1)
+                            {
+                                <li>
+                                    <a id="nextpage" onclick="pagechange(@newpage +1)">下一頁</a>
+                                </li>  
+                                <li>
+                                    <a id="lasttpage" onclick="pagechange(@page)">最後頁</a>
+                                </li>
+                            }
+                            @Html.HiddenFor(mdoel => Model.newpage, new { id = "hidnowpage" })
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+        }
+    }
+}
+

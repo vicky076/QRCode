@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SimpleTest.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="APCODE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MACTBW</Value>
+    </Setting>
+    <Setting Name="DebMode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="pagcount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="SimpleTest_PortalLogReference_wsWorkLog" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.16.1.247/SWWebService/wsWorkLog.asmx</Value>
+    </Setting>
+    <Setting Name="SimpleTest_PortalReference_wsAppFunctions" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.16.1.247/SWWebService/wsAppFunctions.asmx</Value>
+    </Setting>
+    <Setting Name="SimpleTest_ErrorReference_wsError" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.16.1.247/SWWebService/wsError.asmx</Value>
+    </Setting>
+    <Setting Name="MailHost" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10.16.1.211</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
