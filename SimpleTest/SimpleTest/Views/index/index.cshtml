@@ -133,6 +133,8 @@
     @Html.ActionLink(new HtmlString("批次匯入").ToString(), "Import", "Import", null, null)
     @(" ")
     @Html.ActionLink(new HtmlString("多筆新增").ToString(), "MultiSet", "MultiSet", null, null)
+    @(" ")
+    @Html.ActionLink(new HtmlString("圖片上傳/預覽").ToString(), "MultiImg", "MultiSet", null, null)
     <br /> <br />
     <p style="color: red">@Msg</p>    
     if (dtQuery != null)
@@ -162,7 +164,7 @@
                     <td>@item.Card_End</td>
                     <td>@item.CARD_POINT </td>
                     <td>@item.ActTitle</td>
-                    <td>@item.CreateUser</td>            
+                    <td>@item.CreateUser</td>
                 </tr>
             }
         </table>

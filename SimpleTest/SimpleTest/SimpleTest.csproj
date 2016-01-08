@@ -238,6 +238,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\controls.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\ohoopee1.jpg" />
+    <Content Include="images\ohoopee2.jpg" />
+    <Content Include="images\ohoopee3.jpg" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -253,6 +258,7 @@
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.colorbox-min.js" />
+    <Content Include="Scripts\jquery.colorbox.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -324,7 +330,7 @@
     <Content Include="Views\Shared\show_Message.cshtml" />
     <Content Include="Views\import\import.cshtml" />
     <Content Include="Views\MultiSet\MultiSet.cshtml" />
-    <Content Include="Views\Default\Default.cshtml" />
+    <Content Include="Views\MultiSet\MultiImg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

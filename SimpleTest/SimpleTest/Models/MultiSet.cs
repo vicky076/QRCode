@@ -17,13 +17,6 @@ namespace SimpleTest.Models
         public List<MutiDataList> MutiSetting { get; set; }
     }
 
-    //public partial class MutiSetting
-    //{
-    //    public string P_cCardStart { get; set; }
-    //    public string P_cCardEnd { get; set; }
-    //    public string P_cActID { get; set; }
-    //}
-
     public class MutiDataList
     {
         public string P_cCardStart { get; set; }

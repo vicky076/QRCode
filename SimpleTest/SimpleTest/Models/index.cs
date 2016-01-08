@@ -56,9 +56,4 @@ namespace SimpleTest.Models
         public string ActID { get; set; }
         public string ActTitle { get; set; }
     }
-
-    //public class Message
-    //{
-    //    public string message { get; set; }
-    //}
 }
