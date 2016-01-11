@@ -1,0 +1,147 @@
+﻿@model JQuerySimple.Models.index
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    //全選/全不選
+    $(function () {
+        $("#CheckAll").click(function () {
+            if ($(this).prop("checked"))
+                $("input[name='chkName']").prop("checked", true);
+            else 
+                $("input[name='chkName']").prop("checked", false);
+        });
+
+
+        //右移
+        $('#btnRight').click(function () {
+            $('#DataList option:selected').each(function () {
+                $('#ChooseList').append("<option value='" + $(this).val() + "'>" + $(this).text() + "</option>")
+                $(this).remove();
+            });
+        });
+
+        //右移
+        $('#btnLeft').click(function () {
+            $('#ChooseList option:selected').each(function () {
+                $('#DataList').append("<option value='" + $(this).val() + "'>" + $(this).text() + "</option>")
+                $(this).remove();
+            });
+        });
+
+        //上移
+        $("#btnMoveUp,#btnMoveDown").click(function () {
+            var $opt = $('#DataListMove option:selected:first');
+            if (!$opt.length) return;
+            if (this.id == "btnMoveUp")
+                $opt.prev().before($opt); //找前一個元素
+            else
+                $opt.next().after($opt);  //找下一個元素
+        });
+
+
+        快速鍵: alt + 上 / 下鍵
+        $("#DataListMove").keydown(function (evt) {
+            if (!evt.altKey) return;
+            var k = evt.which;
+            if (k == 38) { $("#btnMoveUp").click(); return false; }
+            else if (k == 40) { $("#btnMoveDown").click(); return false; }
+        });
+
+
+        //按下送出post到後端處理
+        $("#btnSend").click(function () {
+            //將option組成陣列
+            var array = [];
+            $("#ChooseList option").each(function () {
+                array.push({ OptVal: $(this).val(), OptTxt: $(this).text() });
+            });
+
+            $.ajax({
+                url: "@Url.Action("OptIndex")",
+                type: "POST",
+                dataType: "json",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    gender: $("#txtTest").val(),
+                    model: array
+                }),
+
+                success: function (msg) {
+                    if (msg == "1")
+                        alert("success");
+                },
+                //處理資料時顯示loading圖
+                beforeSend: function () {
+                    $('#loadingIMG').show();
+                },
+                complete: function () {
+                    $('#loadingIMG').hide();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(error);
+                }
+            });
+        });
+    });
+</script>
+
+
+<h2>左右拖曳</h2>
+<div>
+    <table border="0">
+        <tr>
+            <td>
+                @Html.ListBox("DataList", ((IEnumerable<SelectListItem>)ViewData["SelectData"]), new { id = "DataList", name = "DataList", style = "width:200px; height:300px;" })
+            </td>
+            <td>
+                <input type="button" id="btnRight" name="btnRight" value=">>" />
+                <br />
+                <input type="button" id="btnLeft" name="btnLeft" value="<<" />
+            </td>
+            <td>
+                <select id="ChooseList" multiple="multiple" style="width: 200px; height: 300px;"></select>
+            </td>
+        </tr>
+    </table>
+    @Html.TextBox("test", "", new { id = "txtTest", name = "txtText" })
+    @Html.CheckBox("chktest", false   , new { id="chktest"})
+    <button id="btnSend" type="button">送出</button>
+</div>
+<div id="loadingIMG" style="display: none">
+    <img src="~/Content/loading.gif" height='100' />資料處理中，請稍後。
+</div>
+<br />
+<h2>上下拖曳</h2>
+<div>
+    <table border="0">
+        <tr>
+            <td>
+                @Html.ListBox("DataListMove", ((IEnumerable<SelectListItem>)ViewData["SelectData"]), new { id = "DataListMove", name = "DataListMove", style = "width:200px; height:300px;" })
+            </td>
+            <td>
+                <input type="button" id="btnMoveUp" name="btnMoveUp" value="▲" title="快速鍵: alt+向上" />
+                <br />
+                <input type="button" id="btnMoveDown" name="btnMoveDown" value="▼" title="快速鍵: alt+向下" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+<h2>全選/全不選</h2>
+<div>
+    <table border="0">
+        <tr>
+            <td>
+                <input type="checkbox" name="CheckAll" id="CheckAll" />勾選|
+                <input type="checkbox" title="1" name="chkName"  />1
+                <input type="checkbox" title="2" name="chkName"  />2
+                <input type="checkbox" title="3" name="chkName"  />3
+            </td>
+        </tr>
+    </table>
+</div>
+
+
